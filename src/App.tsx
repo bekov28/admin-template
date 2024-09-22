@@ -21,7 +21,9 @@ export default function JoyOrderDashboardTemplate() {
       <CssBaseline />
       <Box sx={{ display: "flex", minHeight: "100dvh" }}>
         <Header />
-        <Sidebar />
+        <div style={{ position: "fixed", width: "200px" }}>
+          <Sidebar />
+        </div>
 
         <Box
           component="main"
@@ -40,6 +42,10 @@ export default function JoyOrderDashboardTemplate() {
             minWidth: 0,
             height: "100dvh",
             gap: 1,
+            marginLeft: "220px",
+            "@media (max-width:900px)": {
+              marginLeft: "0px",
+            },
           }}
         >
           <Routes>
@@ -59,9 +65,11 @@ export default function JoyOrderDashboardTemplate() {
               path="/usedCar"
               element={<UsedCarComponent maindata={campcarUsedCar.maindata} />}
             />
-              <Route
+            <Route
               path="/camping"
-              element={<CampingComponent maindata={campcarCampingPlace.maindata} />}
+              element={
+                <CampingComponent maindata={campcarCampingPlace.maindata} />
+              }
             />
           </Routes>
         </Box>

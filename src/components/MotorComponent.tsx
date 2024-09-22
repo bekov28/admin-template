@@ -1,6 +1,7 @@
 import { Button, Sheet, Table, Typography } from "@mui/joy";
 import { MotorProps } from "../data";
 import ModalComponent from "./Modal/modalMotor";
+import { ForkLeft } from "@mui/icons-material";
 
 const MotorComponent = (props: MotorProps) => {
   return (
@@ -32,7 +33,12 @@ const MotorComponent = (props: MotorProps) => {
       </div>
       <Sheet
         variant="outlined"
-        sx={{ width: "100%", boxShadow: "sm", borderRadius: "sm" }}
+        sx={{
+          width: "100%",
+          boxShadow: "sm",
+          borderRadius: "sm",
+          marginRight: "5%"
+        }}
       >
         <Table aria-labelledby="tableTitle" hoverRow>
           <thead style={{ padding: "20px 0" }}>
