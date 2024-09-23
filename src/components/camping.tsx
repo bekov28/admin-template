@@ -1,6 +1,9 @@
-import { Button, Sheet, Table, Typography } from "@mui/joy";
+import { Box, Button, Sheet, Table, Typography } from "@mui/joy";
 import { CampingProps, UsedCarProps } from "../data";
 import ModalCampingPlace from "./Modal/modalCampingPlace";
+import IconButton, { iconButtonClasses } from "@mui/joy/IconButton";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
 const CampingComponent = (props: CampingProps) => {
   return (
@@ -8,10 +11,11 @@ const CampingComponent = (props: CampingProps) => {
       <div>
         <Typography
           sx={{
-            fontSize: 44,
+            fontSize: 50,
             fontWeight: 600,
             display: "flex",
             justifyContent: "center",
+            color: "#006DAB",
           }}
         >
           Camping Place
@@ -68,6 +72,50 @@ const CampingComponent = (props: CampingProps) => {
           </tbody>
         </Table>
       </Sheet>
+      <Box
+        className="Pagination-laptopUp"
+        sx={{
+          pt: 2,
+          gap: 1,
+          marginBottom: "20px",
+          marginTop: "10px",
+          [`& .${iconButtonClasses.root}`]: { borderRadius: "50%" },
+          display: {
+            xs: "none",
+            md: "flex",
+          },
+        }}
+      >
+        <Button
+          size="sm"
+          variant="outlined"
+          color="neutral"
+          startDecorator={<KeyboardArrowLeftIcon />}
+        >
+          Previous
+        </Button>
+
+        <Box sx={{ flex: 1 }} />
+        {["1", "2", "3", "…", "8", "9", "10"].map((page) => (
+          <IconButton
+            key={page}
+            size="sm"
+            variant={Number(page) ? "outlined" : "plain"}
+            color="neutral"
+          >
+            {page}
+          </IconButton>
+        ))}
+        <Box sx={{ flex: 1 }} />
+        <Button
+          size="sm"
+          variant="outlined"
+          color="neutral"
+          endDecorator={<KeyboardArrowRightIcon />}
+        >
+          Next
+        </Button>
+      </Box>
     </div>
   );
 };

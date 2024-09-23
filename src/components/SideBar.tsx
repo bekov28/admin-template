@@ -17,6 +17,7 @@ import { closeSidebar } from "../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaravan } from "@fortawesome/free-solid-svg-icons";
 import { Navlink } from "./style";
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 
 function Toggler({
   defaultExpanded = false,
@@ -74,6 +75,7 @@ export default function Sidebar() {
         gap: 2,
         borderRight: "1px solid",
         borderColor: "divider",
+      
       }}
     >
       <GlobalStyles
@@ -153,6 +155,7 @@ export default function Sidebar() {
             gap: 1,
             "--List-nestedInsetStart": "30px",
             "--ListItem-radius": (theme) => theme.vars.radius.sm,
+            marginTop: "20px",
           }}
         >
           <Navlink to={"/motor"}>
@@ -205,15 +208,26 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
           </Navlink>
-
-          <ListItem>
-            <ListItemButton>
-              <DashboardRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Carousel</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
+          <Navlink to={"/carousel"}>
+            {" "}
+            <ListItem>
+              <ListItemButton>
+                <DashboardRoundedIcon />
+                <ListItemContent>
+                  <Typography level="title-sm">Carousel</Typography>
+                </ListItemContent>
+              </ListItemButton>
+            </ListItem>
+          </Navlink>
+          <Navlink to={"/settings"}>
+            {" "}
+            <ListItem sx={{ marginTop: "40px" }}>
+              <ListItemButton>
+                <SettingsRoundedIcon />
+                <Typography level="title-sm"> Settings</Typography>
+              </ListItemButton>
+            </ListItem>
+          </Navlink>
         </List>
       </Box>
       <Divider />
@@ -225,11 +239,13 @@ export default function Sidebar() {
         />
         <Box sx={{ minWidth: 0, flex: 1 }}>
           <Typography level="title-sm">Mister Berd</Typography>
-          <Typography level="body-xs">misterberd@gmail.com</Typography>
+          <Typography level="body-xs">berd@gmail.com</Typography>
         </Box>
-        <IconButton size="sm" variant="plain" color="neutral">
-          <LogoutRoundedIcon />
-        </IconButton>
+        <Navlink to="/">
+          <IconButton size="sm" variant="plain" color="neutral">
+            <LogoutRoundedIcon />
+          </IconButton>
+        </Navlink>
       </Box>
     </Sheet>
   );

@@ -3,7 +3,7 @@ import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
 import Sidebar from "./components/SideBar";
 import Header from "./components/Header";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import MotorComponent from "./components/MotorComponent";
 import { campcar } from "./components/mockdata/motor";
 import { campcarCaravan } from "./components/mockdata/mockdatacaravan";
@@ -14,16 +14,23 @@ import UsedCarComponent from "./components/usedCar";
 import { campcarUsedCar } from "./components/mockdata/mockdatausedcar";
 import CampingComponent from "./components/camping";
 import { campcarCampingPlace } from "./components/mockdata/mockdatacamping";
+import CarouselComponent from "./components/Carousel";
+import LoginComponent from "./components/SignIn/login";
 
 export default function JoyOrderDashboardTemplate() {
+  const location = useLocation();
+  const SidebarContainer = location.pathname === "/";
+
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
       <Box sx={{ display: "flex", minHeight: "100dvh" }}>
         <Header />
-        <div style={{ position: "fixed", width: "200px" }}>
-          <Sidebar />
-        </div>
+        {!SidebarContainer && (
+          <div style={{ position: "fixed" }}>
+            <Sidebar />
+          </div>
+        )}
 
         <Box
           component="main"
@@ -49,6 +56,7 @@ export default function JoyOrderDashboardTemplate() {
           }}
         >
           <Routes>
+            <Route path="/" element={<LoginComponent />} />
             <Route
               path="/motor"
               element={<MotorComponent maindata={campcar.maindata} />}
@@ -71,6 +79,7 @@ export default function JoyOrderDashboardTemplate() {
                 <CampingComponent maindata={campcarCampingPlace.maindata} />
               }
             />
+            <Route path="/carousel" element={<CarouselComponent />} />
           </Routes>
         </Box>
       </Box>
