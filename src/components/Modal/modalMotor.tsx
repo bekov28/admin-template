@@ -9,6 +9,7 @@ import DialogTitle from "@mui/joy/DialogTitle";
 import DialogContent from "@mui/joy/DialogContent";
 import Stack from "@mui/joy/Stack";
 import Add from "@mui/icons-material/Add";
+import SnackbarInvertedColors from "./Snackbar";
 
 export default function ModalMotor() {
   const [open, setOpen] = React.useState(false);
@@ -83,7 +84,7 @@ export default function ModalMotor() {
                   <FormLabel> Cost</FormLabel>
                   <Input required />
                 </FormControl>
-                <Button
+                {/* <Button
                   type="submit"
                   sx={{
                     justifySelf: "center",
@@ -91,10 +92,19 @@ export default function ModalMotor() {
                     width: "32%",
                   }}
                 >
-                  Submit
-                </Button>
+                  Add
+             
+                </Button> */}
               </Stack>
             </form>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <SnackbarInvertedColors />
+            </div>
           </ModalDialog>
         </Modal>
       </div>
