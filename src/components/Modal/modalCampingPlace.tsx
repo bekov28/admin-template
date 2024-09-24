@@ -9,6 +9,7 @@ import DialogTitle from "@mui/joy/DialogTitle";
 import DialogContent from "@mui/joy/DialogContent";
 import Stack from "@mui/joy/Stack";
 import Add from "@mui/icons-material/Add";
+import SnackbarInvertedColors from "./Snackbar";
 
 export default function ModalCampingPlace() {
   const [open, setOpen] = React.useState(false);
@@ -85,18 +86,16 @@ export default function ModalCampingPlace() {
                   <FormLabel> Cost</FormLabel>
                   <Input required />
                 </FormControl>
-                <Button
-                  type="submit"
-                  sx={{
-                    justifySelf: "center",
-                    gridColumn: "span 3",
-                    width: "32%",
-                  }}
-                >
-                  Submit
-                </Button>
               </Stack>
             </form>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <SnackbarInvertedColors />
+            </div>
           </ModalDialog>
         </Modal>
       </div>

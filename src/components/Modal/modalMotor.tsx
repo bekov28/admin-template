@@ -84,17 +84,6 @@ export default function ModalMotor() {
                   <FormLabel> Cost</FormLabel>
                   <Input required />
                 </FormControl>
-                {/* <Button
-                  type="submit"
-                  sx={{
-                    justifySelf: "center",
-                    gridColumn: "span 3",
-                    width: "32%",
-                  }}
-                >
-                  Add
-             
-                </Button> */}
               </Stack>
             </form>
             <div

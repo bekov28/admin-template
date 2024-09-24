@@ -4,10 +4,11 @@ import ModalComponent from "./Modal/modalMotor";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { iconButtonClasses } from "@mui/joy/IconButton";
+import { StyleCon } from "./style";
 
 const MotorComponent = (props: MotorProps) => {
   return (
-    <div>
+    <StyleCon>
       <div>
         <Typography
           sx={{
@@ -46,32 +47,36 @@ const MotorComponent = (props: MotorProps) => {
         <Table aria-labelledby="tableTitle" hoverRow>
           <thead style={{ padding: "20px 0" }}>
             <tr>
-              <th>No</th>
+              <th className="IdCon">No</th>
               <th>Motor Name</th>
               <th>Year</th>
               <th>Location</th>
               <th>Brand</th>
               <th>People</th>
-              <th>Rate</th>
-              <th>Type</th>
-              <th>License</th>
-              <th>Cost</th>
+              <th className="DataCon">Rate</th>
+              <th className="DataCon">Type</th>
+              <th className="DataCon">License</th>
+              <th className="DataCon">Cost</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody
+            style={{
+              cursor: "pointer",
+            }}
+          >
             {props.maindata.map((value) => {
               return (
                 <tr key={value.id}>
-                  <td>{value.id}</td>
+                  <td className="IdCon">{value.id}</td>
                   <td>{value.car.name}</td>
                   <td>{value.car.date}</td>
                   <td>{value.car.location}</td>
                   <td>{value.car.company}</td>
                   <td>{value.car.people}</td>
-                  <td>{value.car.rate}</td>
-                  <td>{value.car.type}</td>
-                  <td>{value.car.license}</td>
-                  <td>{value.car.cost}</td>
+                  <td className="DataCon">{value.car.rate}</td>
+                  <td className="DataCon">{value.car.type}</td>
+                  <td className="DataCon">{value.car.license}</td>
+                  <td className="DataCon AlignCon">{value.car.cost}</td>
                 </tr>
               );
             })}
@@ -122,7 +127,7 @@ const MotorComponent = (props: MotorProps) => {
           Next
         </Button>
       </Box>
-    </div>
+    </StyleCon>
   );
 };
 

@@ -16,6 +16,7 @@ import CampingComponent from "./components/camping";
 import { campcarCampingPlace } from "./components/mockdata/mockdatacamping";
 import CarouselComponent from "./components/Carousel";
 import LoginComponent from "./components/SignIn/login";
+import Settings from "./components/Settings/settings";
 
 export default function JoyOrderDashboardTemplate() {
   const location = useLocation();
@@ -27,7 +28,7 @@ export default function JoyOrderDashboardTemplate() {
       <Box sx={{ display: "flex", minHeight: "100dvh" }}>
         <Header />
         {!SidebarContainer && (
-          <div style={{ position: "fixed" }}>
+          <div style={{ position: "fixed", zIndex: "10" }}>
             <Sidebar />
           </div>
         )}
@@ -45,11 +46,10 @@ export default function JoyOrderDashboardTemplate() {
             pb: { xs: 2, sm: 2, md: 3 },
             flex: 1,
             display: "flex",
-            flexDirection: "column",
+            justifyContent: "center",
             minWidth: 0,
             height: "100dvh",
             gap: 1,
-            marginLeft: "220px",
             "@media (max-width:900px)": {
               marginLeft: "0px",
             },
@@ -80,6 +80,7 @@ export default function JoyOrderDashboardTemplate() {
               }
             />
             <Route path="/carousel" element={<CarouselComponent />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </Box>
       </Box>

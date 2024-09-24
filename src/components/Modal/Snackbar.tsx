@@ -73,7 +73,7 @@ export default function SnackbarInvertedColors() {
         color="success"
         open={openSecondSnackbar}
         onClose={() => setOpenSecondSnackbar(false)}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
         startDecorator={<PlaylistAddCheckCircleRoundedIcon />}
         endDecorator={
           <Button

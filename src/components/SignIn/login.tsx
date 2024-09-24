@@ -16,7 +16,7 @@ import { NavLink } from "react-router-dom";
 const LoginComponent = () => {
   return (
     <>
-      <MainMainCon style={{ marginRight: "220px" }}>
+      <MainMainCon>
         <MainCon>
           <Typography
             level="title-lg"

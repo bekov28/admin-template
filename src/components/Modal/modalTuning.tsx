@@ -9,6 +9,7 @@ import DialogTitle from "@mui/joy/DialogTitle";
 import DialogContent from "@mui/joy/DialogContent";
 import Stack from "@mui/joy/Stack";
 import Add from "@mui/icons-material/Add";
+import SnackbarInvertedColors from "./Snackbar";
 
 export default function ModalTuning() {
   const [open, setOpen] = React.useState(false);
@@ -26,9 +27,7 @@ export default function ModalTuning() {
         <Modal open={open} onClose={() => setOpen(false)}>
           <ModalDialog>
             <DialogTitle>Add New Tuning Car</DialogTitle>
-            <DialogContent>
-              Fill in the new data for Tuning List.
-            </DialogContent>
+            <DialogContent>Fill in the new data for Tuning List.</DialogContent>
 
             <form
               onSubmit={(event) => {
@@ -85,18 +84,16 @@ export default function ModalTuning() {
                   <FormLabel> Cost</FormLabel>
                   <Input required />
                 </FormControl>
-                <Button
-                  type="submit"
-                  sx={{
-                    justifySelf: "center",
-                    gridColumn: "span 3",
-                    width: "32%",
-                  }}
-                >
-                  Submit
-                </Button>
               </Stack>
             </form>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <SnackbarInvertedColors />
+            </div>
           </ModalDialog>
         </Modal>
       </div>

@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaravan } from "@fortawesome/free-solid-svg-icons";
 import { Navlink } from "./style";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import photo from "../components/assets/berd.jpg";
 
 function Toggler({
   defaultExpanded = false,
@@ -75,7 +76,6 @@ export default function Sidebar() {
         gap: 2,
         borderRight: "1px solid",
         borderColor: "divider",
-      
       }}
     >
       <GlobalStyles
@@ -232,11 +232,7 @@ export default function Sidebar() {
       </Box>
       <Divider />
       <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-        <Avatar
-          variant="outlined"
-          size="sm"
-          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
-        />
+        <Avatar variant="outlined" size="sm" src={photo} alt="profile-photo" />
         <Box sx={{ minWidth: 0, flex: 1 }}>
           <Typography level="title-sm">Mister Berd</Typography>
           <Typography level="body-xs">berd@gmail.com</Typography>

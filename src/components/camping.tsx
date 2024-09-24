@@ -4,10 +4,11 @@ import ModalCampingPlace from "./Modal/modalCampingPlace";
 import IconButton, { iconButtonClasses } from "@mui/joy/IconButton";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import { StyleCon } from "./style";
 
 const CampingComponent = (props: CampingProps) => {
   return (
-    <div>
+    <StyleCon>
       <div>
         <Typography
           sx={{
@@ -40,32 +41,32 @@ const CampingComponent = (props: CampingProps) => {
         <Table aria-labelledby="tableTitle" hoverRow>
           <thead style={{ padding: "20px 0" }}>
             <tr>
-              <th>No</th>
+              <th className="IdCon">No</th>
               <th>Camping Place Name</th>
               <th>Contact</th>
               <th>Location</th>
               <th>Brand</th>
               <th>People</th>
-              <th>Type</th>
-              <th>License</th>
-              <th>Cost</th>
-              <th>Site</th>
+              <th className="DataCon">Type</th>
+              <th className="DataCon">License</th>
+              <th className="DataCon">Cost</th>
+              <th className="DataCon">Site</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style={{ cursor: "pointer" }}>
             {props.maindata.map((value) => {
               return (
                 <tr key={value.id}>
-                  <td>{value.id}</td>
-                  <td>{value.camping.name}</td>
-                  <td>{value.camping.phone}</td>
-                  <td>{value.camping.location}</td>
+                  <td className="IdCon">{value.id}</td>
+                  <td className="AlignCon">{value.camping.name}</td>
+                  <td className="AlignCon">{value.camping.phone}</td>
+                  <td className="AlignCon">{value.camping.location}</td>
                   <td>{value.camping.company}</td>
                   <td>{value.camping.people}</td>
-                  <td>{value.camping.type}</td>
-                  <td>{value.camping.license}</td>
-                  <td>{value.camping.cost}</td>
-                  <td>{value.camping.site}</td>
+                  <td className="DataCon">{value.camping.type}</td>
+                  <td className="DataCon">{value.camping.license}</td>
+                  <td className="DataCon AlignCon">{value.camping.cost}</td>
+                  <td className="DataCon AlignCon">{value.camping.site}</td>
                 </tr>
               );
             })}
@@ -116,7 +117,7 @@ const CampingComponent = (props: CampingProps) => {
           Next
         </Button>
       </Box>
-    </div>
+    </StyleCon>
   );
 };
 
