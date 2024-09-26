@@ -25,3 +25,18 @@ export const StyleCon = styled.div`
     }
   }
 `;
+
+export const ModalButton = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  .FixCon {
+    width: 144px;
+    height: 32px !important;
+  }
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
+`;

@@ -10,20 +10,33 @@ import DialogContent from "@mui/joy/DialogContent";
 import Stack from "@mui/joy/Stack";
 import Add from "@mui/icons-material/Add";
 import SnackbarInvertedColors from "./Snackbar";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import { ModalButton } from "../style";
 
 export default function ModalCaravan() {
   const [open, setOpen] = React.useState(false);
   return (
     <React.Fragment>
       <div>
-        <Button
-          variant="outlined"
-          color="neutral"
-          startDecorator={<Add />}
-          onClick={() => setOpen(true)}
-        >
-          New Caravan
-        </Button>
+        <ModalButton>
+          <Button
+            variant="outlined"
+            color="neutral"
+            startDecorator={<Add />}
+            onClick={() => setOpen(true)}
+          >
+            New Caravan
+          </Button>
+          <Button
+            className="FixCon"
+            color="primary"
+            startDecorator={<DownloadRoundedIcon />}
+            size="sm"
+          >
+            Download PDF
+          </Button>
+        </ModalButton>
+
         <Modal open={open} onClose={() => setOpen(false)}>
           <ModalDialog>
             <DialogTitle>Add New Caravan Car</DialogTitle>

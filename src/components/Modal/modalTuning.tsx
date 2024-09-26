@@ -10,20 +10,34 @@ import DialogContent from "@mui/joy/DialogContent";
 import Stack from "@mui/joy/Stack";
 import Add from "@mui/icons-material/Add";
 import SnackbarInvertedColors from "./Snackbar";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import { ModalButton } from "../style";
 
 export default function ModalTuning() {
   const [open, setOpen] = React.useState(false);
   return (
     <React.Fragment>
       <div>
-        <Button
-          variant="outlined"
-          color="neutral"
-          startDecorator={<Add />}
-          onClick={() => setOpen(true)}
-        >
-          New Tuning
-        </Button>
+        <ModalButton>
+          <Button
+            className="FixCon"
+            variant="outlined"
+            color="neutral"
+            startDecorator={<Add />}
+            onClick={() => setOpen(true)}
+          >
+            New Tuning
+          </Button>
+          <Button
+            className="FixCon"
+            color="primary"
+            startDecorator={<DownloadRoundedIcon />}
+            size="sm"
+          >
+            Download PDF
+          </Button>
+        </ModalButton>
+
         <Modal open={open} onClose={() => setOpen(false)}>
           <ModalDialog>
             <DialogTitle>Add New Tuning Car</DialogTitle>
