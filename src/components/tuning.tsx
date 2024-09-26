@@ -5,8 +5,17 @@ import IconButton, { iconButtonClasses } from "@mui/joy/IconButton";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { StyleCon } from "./style";
+import { useEffect, useState } from "react";
+import { campcarTuning } from "./mockdata/mockdatatuning";
 
-const TuningComponent = (props: TuningProps) => {
+const TuningComponent = () => {
+  const [data, setData] = useState<TuningProps | null>(null);
+  useEffect(() => {
+    setData(campcarTuning);
+  }, []);
+
+  console.log(data);
+
   return (
     <StyleCon>
       <div>
@@ -54,7 +63,7 @@ const TuningComponent = (props: TuningProps) => {
             </tr>
           </thead>
           <tbody style={{ cursor: "pointer" }}>
-            {props.maindata.map((value) => {
+            {data?.maindata.map((value) => {
               return (
                 <tr key={value.id}>
                   <td className="IdCon">{value.id}</td>

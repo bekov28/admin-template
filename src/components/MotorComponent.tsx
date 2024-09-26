@@ -5,8 +5,16 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { iconButtonClasses } from "@mui/joy/IconButton";
 import { StyleCon } from "./style";
+import { useEffect, useState } from "react";
+import { campcar } from "./mockdata/motor";
 
-const MotorComponent = (props: MotorProps) => {
+const MotorComponent = () => {
+  const [data, setData] = useState<MotorProps | null>(null);
+  useEffect(() => {
+    setData(campcar);
+  }, []);
+  console.log(data);
+
   return (
     <StyleCon>
       <div>
@@ -64,7 +72,7 @@ const MotorComponent = (props: MotorProps) => {
               cursor: "pointer",
             }}
           >
-            {props.maindata.map((value) => {
+            {data?.maindata.map((value) => {
               return (
                 <tr key={value.id}>
                   <td className="IdCon">{value.id}</td>

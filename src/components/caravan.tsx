@@ -5,8 +5,16 @@ import IconButton, { iconButtonClasses } from "@mui/joy/IconButton";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { StyleCon } from "./style";
+import { useEffect, useState } from "react";
+import { campcarCaravan } from "./mockdata/mockdatacaravan";
 
-const CaravanComponent = (props: CaravanProps) => {
+const CaravanComponent = () => {
+  const [data, setData] = useState<CaravanProps | null>(null);
+  useEffect(() => {
+    setData(campcarCaravan);
+  }, []);
+  console.log(data);
+
   return (
     <StyleCon>
       <div>
@@ -54,7 +62,7 @@ const CaravanComponent = (props: CaravanProps) => {
             </tr>
           </thead>
           <tbody style={{ cursor: "pointer" }}>
-            {props.maindata.map((value) => {
+            {data?.maindata.map((value) => {
               return (
                 <tr key={value.id}>
                   <td className="IdCon">{value.id}</td>

@@ -20,19 +20,20 @@ import Settings from "./components/Settings/settings";
 
 export default function JoyOrderDashboardTemplate() {
   const location = useLocation();
-  const SidebarContainer = location.pathname === "/";
+  const LoginContainer = location.pathname === "/";
 
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
       <Box sx={{ display: "flex", minHeight: "100dvh" }}>
-        <Header />
-        {!SidebarContainer && (
-          <div style={{ position: "fixed", zIndex: "10" }}>
-            <Sidebar />
-          </div>
+        {!LoginContainer && (
+          <>
+            <div style={{ position: "fixed", zIndex: "10" }}>
+              <Sidebar />
+              <Header />
+            </div>
+          </>
         )}
-
         <Box
           component="main"
           className="MainContent"
@@ -57,28 +58,11 @@ export default function JoyOrderDashboardTemplate() {
         >
           <Routes>
             <Route path="/" element={<LoginComponent />} />
-            <Route
-              path="/motor"
-              element={<MotorComponent maindata={campcar.maindata} />}
-            />
-            <Route
-              path="/caravan"
-              element={<CaravanComponent maindata={campcarCaravan.maindata} />}
-            />
-            <Route
-              path="/tuning"
-              element={<TuningComponent maindata={campcarTuning.maindata} />}
-            />
-            <Route
-              path="/usedCar"
-              element={<UsedCarComponent maindata={campcarUsedCar.maindata} />}
-            />
-            <Route
-              path="/camping"
-              element={
-                <CampingComponent maindata={campcarCampingPlace.maindata} />
-              }
-            />
+            <Route path="/motor" element={<MotorComponent />} />
+            <Route path="/caravan" element={<CaravanComponent />} />
+            <Route path="/tuning" element={<TuningComponent />} />
+            <Route path="/usedCar" element={<UsedCarComponent />} />
+            <Route path="/camping" element={<CampingComponent />} />
             <Route path="/carousel" element={<CarouselComponent />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>

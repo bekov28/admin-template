@@ -5,8 +5,15 @@ import IconButton, { iconButtonClasses } from "@mui/joy/IconButton";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { StyleCon } from "./style";
+import { useEffect, useState } from "react";
+import { campcarCampingPlace } from "./mockdata/mockdatacamping";
 
-const CampingComponent = (props: CampingProps) => {
+const CampingComponent = () => {
+  const [data, setData] = useState<CampingProps | null>(null);
+  useEffect(() => {
+    setData(campcarCampingPlace);
+  });
+  console.log(data);
   return (
     <StyleCon>
       <div>
@@ -54,7 +61,7 @@ const CampingComponent = (props: CampingProps) => {
             </tr>
           </thead>
           <tbody style={{ cursor: "pointer" }}>
-            {props.maindata.map((value) => {
+            {data?.maindata.map((value) => {
               return (
                 <tr key={value.id}>
                   <td className="IdCon">{value.id}</td>
