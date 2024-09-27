@@ -8,6 +8,7 @@ import { StyleCon } from "./style";
 import { useState } from "react";
 import { useEffect } from "react";
 import { campcarUsedCar } from "./mockdata/mockdatausedcar";
+import { useNavigate } from "react-router-dom";
 
 const UsedCarComponent = () => {
   const [data, setData] = useState<UsedCarProps | null>(null);
@@ -15,6 +16,11 @@ const UsedCarComponent = () => {
     setData(campcarUsedCar);
   });
   console.log(data);
+
+  const navigate = useNavigate();
+  const handleRowClick = (id: string) => {
+    navigate(`/usedCar/${id}`);
+  };
 
   return (
     <StyleCon>
@@ -52,11 +58,6 @@ const UsedCarComponent = () => {
             <tr>
               <th className="IdCon">No</th>
               <th>Motor Name</th>
-              <th>Year</th>
-              <th>Location</th>
-              <th>Brand</th>
-              <th>People</th>
-              <th className="DataCon">Rate</th>
               <th className="DataCon">Type</th>
               <th className="DataCon">License</th>
               <th className="DataCon">Cost</th>
@@ -65,17 +66,15 @@ const UsedCarComponent = () => {
           <tbody style={{ cursor: "pointer" }}>
             {data?.maindata.map((value) => {
               return (
-                <tr key={value.id}>
+                <tr
+                  key={value.id}
+                  onClick={() => handleRowClick(value.id.toString())}
+                >
                   <td className="IdCon">{value.id}</td>
                   <td>{value.car.name}</td>
-                  <td>{value.car.date}</td>
-                  <td>{value.car.location}</td>
-                  <td>{value.car.company}</td>
-                  <td>{value.car.people}</td>
-                  <td className="DataCon">{value.car.rate}</td>
-                  <td className="DataCon">{value.car.type}</td>
-                  <td className="DataCon">{value.car.license}</td>
-                  <td className="DataCon AlignCon">{value.car.cost}</td>
+                  <td>{value.car.type}</td>
+                  <td>{value.car.license}</td>
+                  <td className="AlignCon">{value.car.cost}</td>
                 </tr>
               );
             })}

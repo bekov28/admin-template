@@ -7,13 +7,21 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { StyleCon } from "./style";
 import { useEffect, useState } from "react";
 import { campcarCaravan } from "./mockdata/mockdatacaravan";
+import { useNavigate } from "react-router-dom";
 
 const CaravanComponent = () => {
   const [data, setData] = useState<CaravanProps | null>(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     setData(campcarCaravan);
   }, []);
+
   console.log(data);
+
+  const handleRowClick = (id: string) => {
+    navigate(`/caravan/${id}`);
+  };
 
   return (
     <StyleCon>
@@ -51,27 +59,21 @@ const CaravanComponent = () => {
             <tr>
               <th className="IdCon">No</th>
               <th>Caravan Name</th>
-              <th>Year</th>
-              <th>Location</th>
-              <th>Brand</th>
-              <th>People</th>
-              <th className="DataCon">Rate</th>
               <th className="DataCon">Type</th>
               <th className="DataCon">License</th>
               <th className="DataCon">Cost</th>
             </tr>
           </thead>
-          <tbody style={{ cursor: "pointer" }}>
+          <tbody>
             {data?.maindata.map((value) => {
               return (
-                <tr key={value.id}>
+                <tr
+                  key={value.id}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleRowClick(value.id.toString())}
+                >
                   <td className="IdCon">{value.id}</td>
                   <td>{value.car.name}</td>
-                  <td>{value.car.date}</td>
-                  <td>{value.car.location}</td>
-                  <td>{value.car.company}</td>
-                  <td>{value.car.people}</td>
-                  <td className="DataCon">{value.car.rate}</td>
                   <td className="DataCon">{value.car.type}</td>
                   <td className="DataCon">{value.car.license}</td>
                   <td className="DataCon AlignCon">{value.car.cost}</td>

@@ -7,6 +7,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { StyleCon } from "./style";
 import { useEffect, useState } from "react";
 import { campcarCampingPlace } from "./mockdata/mockdatacamping";
+import { useNavigate } from "react-router-dom";
 
 const CampingComponent = () => {
   const [data, setData] = useState<CampingProps | null>(null);
@@ -14,6 +15,12 @@ const CampingComponent = () => {
     setData(campcarCampingPlace);
   });
   console.log(data);
+
+  const navigate = useNavigate();
+  const handleRowClick = (id: string) => {
+    navigate(`/camping/${id}`);
+  };
+
   return (
     <StyleCon>
       <div>
@@ -50,30 +57,23 @@ const CampingComponent = () => {
             <tr>
               <th className="IdCon">No</th>
               <th>Camping Place Name</th>
-              <th>Contact</th>
-              <th>Location</th>
-              <th>Brand</th>
-              <th>People</th>
-              <th className="DataCon">Type</th>
-              <th className="DataCon">License</th>
-              <th className="DataCon">Cost</th>
-              <th className="DataCon">Site</th>
+              <th>Type</th>
+              <th>License</th>
+              <th>Site</th>
             </tr>
           </thead>
           <tbody style={{ cursor: "pointer" }}>
             {data?.maindata.map((value) => {
               return (
-                <tr key={value.id}>
+                <tr
+                  key={value.id}
+                  onClick={() => handleRowClick(value.id.toString())}
+                >
                   <td className="IdCon">{value.id}</td>
-                  <td className="AlignCon">{value.camping.name}</td>
-                  <td className="AlignCon">{value.camping.phone}</td>
-                  <td className="AlignCon">{value.camping.location}</td>
-                  <td>{value.camping.company}</td>
-                  <td>{value.camping.people}</td>
-                  <td className="DataCon">{value.camping.type}</td>
-                  <td className="DataCon">{value.camping.license}</td>
-                  <td className="DataCon AlignCon">{value.camping.cost}</td>
-                  <td className="DataCon AlignCon">{value.camping.site}</td>
+                  <td>{value.camping.name}</td>
+                  <td>{value.camping.type}</td>
+                  <td className="AlignCon">{value.camping.license}</td>
+                  <td className="AlignCon">{value.camping.site}</td>
                 </tr>
               );
             })}

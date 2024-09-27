@@ -19,10 +19,6 @@ export const StyleCon = styled.div`
   }
   @media only screen and (max-width: 900px) {
     margin-left: 0px;
-
-    .DataCon {
-      display: none;
-    }
   }
 `;
 
@@ -38,5 +34,19 @@ export const ModalButton = styled.div`
   }
   @media screen and (max-width: 900px) {
     flex-direction: column;
+  }
+`;
+
+export const DetailStyle = styled.div`
+  margin-left: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+
+  @media only screen and (max-width: 900px) {
+    margin-left: 0px;
+    width: 70%;
+    height: 900px;
   }
 `;

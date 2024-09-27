@@ -12,6 +12,11 @@ import CampingComponent from "./components/camping";
 import CarouselComponent from "./components/Carousel";
 import LoginComponent from "./components/SignIn/login";
 import Settings from "./components/Settings/settings";
+import MotorDetail from "./components/DetailData/motorDetail";
+import CaravanDetail from "./components/DetailData/caravanDetail";
+import TuningDetail from "./components/DetailData/tuningDetail";
+import UsedCarDetail from "./components/DetailData/usedCarDetail";
+import CampingDetail from "./components/DetailData/campingDetail";
 
 export default function JoyOrderDashboardTemplate() {
   const location = useLocation();
@@ -54,10 +59,15 @@ export default function JoyOrderDashboardTemplate() {
           <Routes>
             <Route path="/" element={<LoginComponent />} />
             <Route path="/motor" element={<MotorComponent />} />
+            <Route path="/motor/:id" element={<MotorDetail />} />
             <Route path="/caravan" element={<CaravanComponent />} />
+            <Route path="/caravan/:id" element={<CaravanDetail />} />
             <Route path="/tuning" element={<TuningComponent />} />
+            <Route path="/tuning/:id" element={<TuningDetail />} />
             <Route path="/usedCar" element={<UsedCarComponent />} />
+            <Route path="/usedCar/:id" element={<UsedCarDetail />} />
             <Route path="/camping" element={<CampingComponent />} />
+            <Route path="/camping/:id" element={<CampingDetail />} />
             <Route path="/carousel" element={<CarouselComponent />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
