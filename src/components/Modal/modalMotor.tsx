@@ -55,19 +55,30 @@ export default function ModalMotor() {
                 spacing={1}
                 sx={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "1rem",
+                  gridTemplateColumns: {
+                    xs: "1fr",
+                    sm: "repeat(2, 1fr)",
+                    md: "repeat(3, 1fr)",
+                  },
+                  gap: {
+                    xs: "0px",
+                    sm: "1rem",
+                    md: "1rem",
+                  },
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                <div style={{ marginTop: "8px" }}>
+                <div
+                  style={{
+                    marginTop: "8px",
+                  }}
+                >
                   <FormControl>
                     <FormLabel>Motor Name</FormLabel>
                     <Input autoFocus required />
                   </FormControl>
                 </div>
-
                 <FormControl>
                   <FormLabel>Year</FormLabel>
                   <Input required />
@@ -92,16 +103,33 @@ export default function ModalMotor() {
                   <FormLabel>Type</FormLabel>
                   <Input required />
                 </FormControl>
-                <FormControl>
+                <FormControl
+                  sx={{
+                    display: {
+                      xs: "none",
+                      sm: "block",
+                      md: "block",
+                    },
+                  }}
+                >
                   <FormLabel> License</FormLabel>
                   <Input required />
                 </FormControl>
-                <FormControl>
+                <FormControl
+                  sx={{
+                    display: {
+                      xs: "none",
+                      sm: "block",
+                      md: "block",
+                    },
+                  }}
+                >
                   <FormLabel> Cost</FormLabel>
                   <Input required />
                 </FormControl>
               </Stack>
             </form>
+
             <div
               style={{
                 display: "flex",

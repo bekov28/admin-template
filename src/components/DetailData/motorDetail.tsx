@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 export default function MotorDetail() {
   const { id } = useParams<{ id: string }>();
   const data = campcar.maindata;
+  
 
   const filteredData = data.filter(
     (value) => value.id === (id ? parseInt(id) : null)

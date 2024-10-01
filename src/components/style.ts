@@ -10,6 +10,7 @@ export const Navlink = styled(Link)`
 
 export const StyleCon = styled.div`
   margin-left: 220px;
+
   .AlignCon {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -50,3 +51,11 @@ export const DetailStyle = styled.div`
     height: 900px;
   }
 `;
+export const SheetCon = styled.div`
+  width: 100%;
+
+  @media only screen and (max-width: 900px) {
+    margin-bottom: 10px !important;
+  }
+`;
+export const PaginationCon = styled.div``;
