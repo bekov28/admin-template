@@ -99,7 +99,15 @@ export default function ModalMotor() {
                   <FormLabel>Rate</FormLabel>
                   <Input required />
                 </FormControl>
-                <FormControl>
+                <FormControl
+                  sx={{
+                    display: {
+                      xs: "none",
+                      sm: "block",
+                      md: "block",
+                    },
+                  }}
+                >
                   <FormLabel>Type</FormLabel>
                   <Input required />
                 </FormControl>

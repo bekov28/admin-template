@@ -17,23 +17,23 @@ import CaravanDetail from "./components/DetailData/caravanDetail";
 import TuningDetail from "./components/DetailData/tuningDetail";
 import UsedCarDetail from "./components/DetailData/usedCarDetail";
 import CampingDetail from "./components/DetailData/campingDetail";
+import ColorSchemeToggle from "./components/ColorSchemeToggle";
 
 export default function JoyOrderDashboardTemplate() {
   const location = useLocation();
-  const LoginContainer = location.pathname === "/";
+  const HiddenSidebar = location.pathname === "/";
 
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
       <Box sx={{ display: "flex", minHeight: "100dvh" }}>
-        {!LoginContainer && (
-          <>
-            <div style={{ position: "fixed", zIndex: "10" }}>
-              <Sidebar />
-              <Header />
-            </div>
-          </>
+        {!HiddenSidebar && (
+          <div style={{ position: "fixed", zIndex: "10" }}>
+            <Sidebar />
+            <Header />
+          </div>
         )}
+
         <Box
           component="main"
           className="MainContent"

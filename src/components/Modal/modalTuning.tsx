@@ -53,8 +53,16 @@ export default function ModalTuning() {
                 spacing={1}
                 sx={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "1rem",
+                  gridTemplateColumns: {
+                    xs: "1fr",
+                    sm: "repeat(2, 1fr)",
+                    md: "repeat(3, 1fr)",
+                  },
+                  gap: {
+                    xs: "0px",
+                    sm: "1rem",
+                    md: "1rem",
+                  },
                   alignItems: "center",
                   justifyContent: "center",
                 }}
@@ -86,15 +94,39 @@ export default function ModalTuning() {
                   <FormLabel>Rate</FormLabel>
                   <Input required />
                 </FormControl>
-                <FormControl>
+                <FormControl
+                  sx={{
+                    display: {
+                      xs: "none",
+                      sm: "block",
+                      md: "block",
+                    },
+                  }}
+                >
                   <FormLabel>Type</FormLabel>
                   <Input required />
                 </FormControl>
-                <FormControl>
+                <FormControl
+                  sx={{
+                    display: {
+                      xs: "none",
+                      sm: "block",
+                      md: "block",
+                    },
+                  }}
+                >
                   <FormLabel> License</FormLabel>
                   <Input required />
                 </FormControl>
-                <FormControl>
+                <FormControl
+                  sx={{
+                    display: {
+                      xs: "none",
+                      sm: "block",
+                      md: "block",
+                    },
+                  }}
+                >
                   <FormLabel> Cost</FormLabel>
                   <Input required />
                 </FormControl>
